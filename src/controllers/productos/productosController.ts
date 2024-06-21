@@ -6,7 +6,8 @@ export const getAllProducts = async (req: Request, res: Response) => {
     try {
         const products = await productService.getAllProducts();
         res.json(products);
-    } catch (error) {
+    } catch (error:any) {
+        console.log(error.message);
         res.status(500).json({ error: 'Error fetching products' });
     }
 };

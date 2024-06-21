@@ -34,7 +34,7 @@ export const getAllCartDetails = async (): Promise<CartDetailDTO[]> => {
     return [
         ...nikeResponse.data,
         ...adidasResponse.data,
-        ...maoconnResponse.ObtenerListaDetallesCarritoResult
+        ...maoconnResponse.ObtenerListaDetallesCarritoResult.DetalleCarritoDTO
     ];
 };
 

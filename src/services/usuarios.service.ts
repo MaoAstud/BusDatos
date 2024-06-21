@@ -33,7 +33,7 @@ export const getAllUsers = async (): Promise<UserDTO[]> => {
     return [
         ...nikeResponse.data,
         ...adidasResponse.data,
-        ...maoconnResponse.ObtenerListaUsuariosResult
+        ...maoconnResponse.ObtenerListaUsuariosResult.UsuarioDTO
     ];
 };
 

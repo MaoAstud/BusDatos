@@ -33,7 +33,7 @@ export const getAllCategories = async (): Promise<CategoryDTO[]> => {
     return [
         ...nikeResponse.data,
         ...adidasResponse.data,
-        ...maoconnResponse.ObtenerListaCategoriasResult
+        ...maoconnResponse.ObtenerListaCategoriasResult.CategoriaDTO
     ];
 };
 

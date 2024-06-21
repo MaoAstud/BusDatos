@@ -37,10 +37,11 @@ export const getAllProducts = async (): Promise<ProductDTO[]> => {
     const maoconnClient = await getMaoconnClient();
     const [maoconnResponse] = await maoconnClient.ObtenerListaProductosAsync({});
     
+    console.log(maoconnResponse.ObtenerListaProductosResult);
     return [
         ...nikeResponse.data,
         ...adidasResponse.data,
-        ...maoconnResponse.ObtenerListaProductosResult
+        ...maoconnResponse.ObtenerListaProductosResult.ProductoDTO
     ];
 };
 
@@ -50,7 +51,7 @@ export const getProductById = async (id: number): Promise<ProductDTO | null> => 
     const maoconnClient = await getMaoconnClient();
     const [maoconnResponse] = await maoconnClient.BuscarProductoPorIDAsync({ id_producto: id });
 
-    return nikeResponse.data || adidasResponse.data || maoconnResponse.BuscarProductoPorIDResult || null;
+    return nikeResponse.data || adidasResponse.data || maoconnResponse.BuscarProductoPorIDResult.ProductoDTO || null;
 };
 
 export const createProduct = async (data: ProductDTO): Promise<ProductDTO> => {
