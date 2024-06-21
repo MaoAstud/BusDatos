@@ -10,7 +10,7 @@ export class DetalleRoutes{
         router.get('/:id', cartDetailController.getCartDetailById);
         router.post('/', cartDetailController.createCartDetail);
         router.put('/:id', cartDetailController.updateCartDetail);
-        router.delete('/:id', cartDetailController.deleteCartDetail);
+        router.delete('/:id/:origen', cartDetailController.deleteCartDetail);
 
         return router;
     }

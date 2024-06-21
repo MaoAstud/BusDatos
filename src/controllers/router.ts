@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { UsuarioRoutes } from "../controladores/usuarios/usuariosRoutes";
-import { CategoriasRoutes } from "../controladores/categorias/categoriasRoutes";
-import { DetalleRoutes } from "../controladores/detalle/detalleRoutes";
-import { ProductosRoutes } from "../controladores/productos/productosRoutes";
-import { ComentariosRoutes } from "../controladores/comentarios/comentariosRoutes";
-import { CarritoRoutes } from "../controladores/carritos/carritosRoutes";
+import { UsuarioRoutes } from "../controllers/usuarios/usuariosRoutes";
+import { CategoriasRoutes } from "../controllers/categorias/categoriasRoutes";
+import { DetalleRoutes } from "../controllers/detalle/detalleRoutes";
+import { ProductosRoutes } from "../controllers/productos/productosRoutes";
+import { ComentariosRoutes } from "../controllers/comentarios/comentariosRoutes";
+import { CarritoRoutes } from "../controllers/carritos/carritosRoutes";
 
 export class AppRoutes {
     static url:string = "/nike/api";

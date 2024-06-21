@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import * as userService from '../../logicaNegocio/usuarios.service';
+import * as userService from '../../services/usuarios.service';
 
 export const getAllUsers = async (req: Request, res: Response) => {
     try {
@@ -49,8 +49,8 @@ export const updateUser = async (req: Request, res: Response) => {
 
 export const deleteUser = async (req: Request, res: Response) => {
     try {
-        const { id } = req.params;
-        await userService.deleteUser(parseInt(id));
+        const { id, origen } = req.params;
+        await userService.deleteUser(parseInt(id), origen);
         res.json({ message: 'User deleted' });
     } catch (error) {
         res.status(500).json({ error: 'Error deleting user' });

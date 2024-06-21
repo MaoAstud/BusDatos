@@ -10,7 +10,7 @@ export class CarritoRoutes{
         router.get('/:id', cartController.getCartById);
         router.post('/', cartController.createCart);
         router.put('/:id', cartController.updateCart);
-        router.delete('/:id', cartController.deleteCart);
+        router.delete('/:id/:origen', cartController.deleteCart);
 
         return router;
     }

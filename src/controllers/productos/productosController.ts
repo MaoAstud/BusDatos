@@ -1,6 +1,6 @@
 // src/controllers/productController.ts
 import { Request, Response } from 'express';
-import * as productService from '../../logicaNegocio/productos.service';
+import * as productService from '../../services/productos.service';
 
 export const getAllProducts = async (req: Request, res: Response) => {
     try {
@@ -50,8 +50,8 @@ export const updateProduct = async (req: Request, res: Response) => {
 
 export const deleteProduct = async (req: Request, res: Response) => {
     try {
-        const { id } = req.params;
-        await productService.deleteProduct(parseInt(id));
+        const { id, origen } = req.params;
+        await productService.deleteProduct(parseInt(id), origen);
         res.json({ message: 'Product deleted' });
     } catch (error) {
         res.status(500).json({ error: 'Error deleting product' });

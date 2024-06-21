@@ -1,6 +1,6 @@
 // src/controllers/categoryController.ts
 import { Request, Response } from 'express';
-import * as categoryService from '../../logicaNegocio/categorias.service';
+import * as categoryService from '../../services/categorias.service';
 
 export const getAllCategories = async (req: Request, res: Response) => {
     try {
@@ -50,8 +50,8 @@ export const updateCategory = async (req: Request, res: Response) => {
 
 export const deleteCategory = async (req: Request, res: Response) => {
     try {
-        const { id } = req.params;
-        await categoryService.deleteCategory(parseInt(id));
+        const { id, origen } = req.params;
+        await categoryService.deleteCategory(parseInt(id), origen);
         res.json({ message: 'Category deleted' });
     } catch (error) {
         res.status(500).json({ error: 'Error deleting category' });

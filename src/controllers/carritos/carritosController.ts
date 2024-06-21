@@ -1,6 +1,6 @@
 // src/controllers/cartController.ts
 import { Request, Response } from 'express';
-import * as cartService from '../../logicaNegocio/carrito.service';
+import * as cartService from '../../services/carrito.service';
 
 export const getAllCarts = async (req: Request, res: Response) => {
     try {
@@ -50,8 +50,8 @@ export const updateCart = async (req: Request, res: Response) => {
 
 export const deleteCart = async (req: Request, res: Response) => {
     try {
-        const { id } = req.params;
-        await cartService.deleteCart(parseInt(id));
+        const { id, origen } = req.params;
+        await cartService.deleteCart(parseInt(id), origen);
         res.json({ message: 'Cart deleted' });
     } catch (error) {
         res.status(500).json({ error: 'Error deleting cart' });

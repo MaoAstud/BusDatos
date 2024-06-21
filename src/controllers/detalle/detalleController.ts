@@ -1,6 +1,6 @@
 // src/controllers/cartDetailController.ts
 import { Request, Response } from 'express';
-import * as cartDetailService from '../../logicaNegocio/detalle.service';
+import * as cartDetailService from '../../services/detalle.service';
 
 export const getAllCartDetails = async (req: Request, res: Response) => {
     try {
@@ -50,8 +50,8 @@ export const updateCartDetail = async (req: Request, res: Response) => {
 
 export const deleteCartDetail = async (req: Request, res: Response) => {
     try {
-        const { id } = req.params;
-        await cartDetailService.deleteCartDetail(parseInt(id));
+        const { id, origen } = req.params;
+        await cartDetailService.deleteCartDetail(parseInt(id), origen);
         res.json({ message: 'Cart detail deleted' });
     } catch (error) {
         res.status(500).json({ error: 'Error deleting cart detail' });

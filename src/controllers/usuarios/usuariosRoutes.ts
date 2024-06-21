@@ -10,7 +10,7 @@ export class UsuarioRoutes{
         router.get('/:id', userController.getUserById);
         router.post('/', userController.createUser);
         router.put('/:id', userController.updateUser);
-        router.delete('/:id', userController.deleteUser);
+        router.delete('/:id/:origen', userController.deleteUser);
 
         return router;
     }

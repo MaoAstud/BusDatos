@@ -1,6 +1,6 @@
 // src/controllers/commentController.ts
 import { Request, Response } from 'express';
-import * as commentService from '../../logicaNegocio/comentarios.service';
+import * as commentService from '../../services/comentarios.service';
 
 export const getAllComments = async (req: Request, res: Response) => {
     try {
@@ -50,8 +50,8 @@ export const updateComment = async (req: Request, res: Response) => {
 
 export const deleteComment = async (req: Request, res: Response) => {
     try {
-        const { id } = req.params;
-        await commentService.deleteComment(parseInt(id));
+        const { id, origen } = req.params;
+        await commentService.deleteComment(parseInt(id), origen);
         res.json({ message: 'Comment deleted' });
     } catch (error) {
         res.status(500).json({ error: 'Error deleting comment' });
