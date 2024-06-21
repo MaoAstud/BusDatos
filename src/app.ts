@@ -1,17 +1,13 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import { restApiMaoConNRouter } from './controllers/restApi1Controller';
-import { restApiNikeRouter } from './controllers/restApi2Controller';
-import { soapApiAdidasRouter } from './controllers/soapApiController';
 
-const app = express();
-const port = 3750;
+import { AppRoutes } from "./presentation/router";
+import { Server } from "./presentation/server";
 
-app.use(bodyParser.json());
-app.use('/api/maoconn', restApiMaoConNRouter);
-app.use('/api/nike', restApiNikeRouter);
-app.use('/api/adidas', soapApiAdidasRouter);
+(async() => {
+    main();
+})();
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
-});
+function main(){
+    const server = new Server(AppRoutes.routes);
+
+    server.start();
+}
